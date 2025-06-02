@@ -1,0 +1,226 @@
+
+
+.container {
+    max-width: 1280px; /* Slightly wider container for the cards */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Team Section Styling */
+.team-section {
+    width: 100%;
+    text-align: center;
+}
+
+.team-section h2 {
+    font-size: 3.5em; /* Large heading */
+    color: #fff;
+    margin-bottom: 60px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.team-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Allow cards to wrap to the next line on smaller screens */
+    gap: 30px; /* Space between cards */
+}
+
+/* Team Member Card Styling */
+.team-member-card {
+    background-color: #1a0833; /* Darker background for cards */
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    width: 280px; /* Fixed width for each card */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); /* Stronger shadow */
+    position: relative; /* Needed for border animation or glow */
+    overflow: hidden; /* Important to hide overflow from border effect */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Dynamic Border Glow Effect (Optional but cool!) */
+.team-member-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--border-color-start), var(--border-color-end)); /* Using CSS variables */
+    background-size: 200% 200%;
+    animation: gradientShift 4s linear infinite;
+    z-index: -1;
+    border-radius: 22px; /* Slightly larger than card for glow */
+    opacity: 0.6; /* Soften the glow */
+    filter: blur(10px); /* Blur the glow */
+    pointer-events: none; /* Don't interfere with clicks */
+}
+
+/* Default border colors, overridden by specific gradient classes */
+.team-member-card {
+    --border-color-start: #333;
+    --border-color-end: #555;
+}
+
+.team-member-card:hover {
+    transform: translateY(-10px); /* Lift card on hover */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    /* You might want to adjust the border glow on hover too */
+}
+
+
+/* Profile Avatar Styling */
+.profile-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 25px; /* Center and add bottom margin */
+    font-size: 50px; /* Size of the user icon */
+    color: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative; /* For inner glow effect */
+}
+
+/* Inner Glow Effect for Avatars */
+.profile-avatar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.1); /* Subtle inner white glow */
+}
+
+/* Gradient Backgrounds for Avatars and Card Borders */
+.gradient-blue {
+    background: linear-gradient(45deg, #007bff, #00c6ff);
+    --border-color-start: #007bff; /* Custom property for border glow */
+    --border-color-end: #00c6ff;
+}
+
+.gradient-purple {
+    background: linear-gradient(45deg, #8a2be2, #c800ff);
+    --border-color-start: #8a2be2;
+    --border-color-end: #c800ff;
+}
+
+.gradient-orange {
+    background: linear-gradient(45deg, #ffa500, #ff5c00);
+    --border-color-start: #ffa500;
+    --border-color-end: #ff5c00;
+}
+
+.gradient-green {
+    background: linear-gradient(45deg, #28a745, #00c767);
+    --border-color-start: #28a745;
+    --border-color-end: #00c767;
+}
+
+/* Text Styling */
+.team-member-card h3 {
+    font-size: 1.8em;
+    margin-bottom: 8px;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+}
+
+/* Color specific names */
+.team-member-card:nth-child(1) h3 { color: #00c6ff; } /* Blue */
+.team-member-card:nth-child(2) h3 { color: #c800ff; } /* Purple */
+.team-member-card:nth-child(3) h3 { color: #ff5c00; } /* Orange */
+.team-member-card:nth-child(4) h3 { color: #00c767; } /* Green */
+
+
+.team-member-card .role {
+    font-size: 1.1em;
+    color: #b0b0b0; /* Lighter grey */
+    margin-bottom: 15px;
+}
+
+.team-member-card .experience {
+    font-size: 0.95em;
+    color: #999;
+    margin-bottom: 25px;
+}
+
+/* Social Links Styling */
+.social-links {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Space between icons */
+}
+
+.social-links a {
+    color: #e0e0e0;
+    font-size: 1.5em;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #00c6ff; /* A general hover color, or make it unique for each card */
+    transform: translateY(-3px);
+}
+
+/* Keyframe for the border gradient animation */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .team-grid {
+        gap: 25px;
+    }
+}
+
+@media (max-width: 992px) {
+    .team-grid {
+        gap: 20px;
+        justify-content: center;
+    }
+    .team-member-card {
+        width: 260px;
+    }
+}
+
+@media (max-width: 768px) {
+    .team-section h2 {
+        font-size: 2.5em;
+        margin-bottom: 40px;
+    }
+    .team-grid {
+        flex-direction: column; /* Stack cards vertically */
+        align-items: center;
+        gap: 30px;
+    }
+    .team-member-card {
+        width: 80%; /* Make cards take more width on small screens */
+        max-width: 350px; /* Prevent them from getting too wide */
+    }
+}
+
+@media (max-width: 480px) {
+    .team-member-card {
+        padding: 25px;
+    }
+    .profile-avatar {
+        width: 100px;
+        height: 100px;
+        font-size: 40px;
+    }
+    .team-member-card h3 {
+        font-size: 1.5em;
+    }
+    .team-member-card .role {
+        font-size: 1em;
+    }
+}

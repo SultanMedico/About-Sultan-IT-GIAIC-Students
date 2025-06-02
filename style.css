@@ -1,0 +1,267 @@
+/* Basic Resets and Body Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif; /* You'll want to use a more modern font like Poppins or Montserrat */
+    background-color: #0b011d; /* Dark background color */
+    color: #fff;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navbar Styling */
+.navbar {
+    background-color: rgba(0, 0, 0, 0.3); /* Slightly transparent background */
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.navbar .logo img {
+    height: 30px; /* Adjust as needed */
+    margin-right: 10px;
+}
+
+.navbar .logo .live-now {
+    background-color: #ff4d4d; /* Red background for "LIVE NOW" */
+    font-size: 12px;
+    padding: 5px 8px;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.navbar nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.navbar nav ul li {
+    margin-left: 30px;
+}
+
+.navbar nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.navbar nav ul li a:hover {
+    color: #ffd700; /* Yellow hover effect */
+}
+
+.navbar .buy-button {
+    background-color: #ffa500; /* Orange background */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.navbar .buy-button img {
+    height: 18px; /* Adjust icon size */
+    margin-right: 8px;
+}
+
+.navbar .buy-button:hover {
+    background-color: #ff8c00;
+}
+
+
+/* Hero Section Styling */
+.hero-section {
+    text-align: center;
+    padding: 150px 0 100px; /* Adjust padding for spacing */
+    background-image: url('background-pattern.png'); /* You'll need a background pattern image */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden; /* To contain any elements that might overflow */
+}
+
+.hero-section::before { /* For the subtle glow effect */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, rgba(100, 0, 200, 0.2) 0%, transparent 70%);
+    z-index: -1;
+}
+
+.hero-section .live-status {
+    background-color: rgba(255, 0, 0, 0.2); /* Semi-transparent red */
+    color: #ff4d4d;
+    padding: 8px 15px;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+    border: 1px solid #ff4d4d;
+}
+
+.hero-section .live-status .dot {
+    width: 10px;
+    height: 10px;
+    background-color: #ff4d4d;
+    border-radius: 50%;
+    margin-right: 8px;
+    animation: pulse 1.5s infinite; /* For a pulsing effect */
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.7; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.hero-section h1 {
+    font-size: 80px; /* Large, bold text */
+    font-weight: 900;
+    margin-bottom: 20px;
+    background: linear-gradient(to right, #ffeb3b, #00ffff, #8a2be2); /* Gradient text */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.5); /* Glowing effect */
+}
+
+.hero-section .subtitle {
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #bbb;
+}
+
+.hero-section .bonus-text {
+    font-size: 20px;
+    color: #8cff8c; /* Green color for bonus */
+    margin-bottom: 40px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.hero-section .bonus-text img {
+    height: 25px; /* Adjust icon size */
+    margin-right: 10px;
+}
+
+/* Countdown Section */
+.countdown-section {
+    background-color: rgba(0, 0, 0, 0.4); /* Darker semi-transparent background */
+    padding: 30px;
+    border-radius: 15px;
+    display: inline-block; /* To make it wrap its content */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px); /* Optional: Frosted glass effect */
+}
+
+.countdown-title {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #ffd700; /* Yellow color */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.countdown-title img {
+    height: 25px;
+    margin-right: 10px;
+}
+
+.countdown-timer {
+    display: flex;
+    gap: 20px;
+}
+
+.timer-box {
+    background-color: #1a0833; /* Darker box background */
+    padding: 20px 25px;
+    border-radius: 10px;
+    border: 1px solid #4a0f8a; /* Purple border */
+    box-shadow: 0 0 15px rgba(138, 43, 226, 0.4); /* Purple glow */
+}
+
+.timer-box span:first-child {
+    display: block;
+    font-size: 48px;
+    font-weight: bold;
+    color: #ffeb3b; /* Yellow for numbers */
+    margin-bottom: 5px;
+}
+
+.timer-box .label {
+    font-size: 16px;
+    color: #bbb;
+}
+
+/* Responsive Design (Basic Example) */
+@media (max-width: 768px) {
+    .navbar .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .navbar nav ul {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .navbar nav ul li {
+        margin: 0 15px 10px;
+    }
+    .hero-section h1 {
+        font-size: 50px;
+    }
+    .hero-section .subtitle {
+        font-size: 22px;
+    }
+    .countdown-timer {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .timer-box {
+        margin-bottom: 15px;
+    }
+}
+
+
+
+
+
+
+
+
+
